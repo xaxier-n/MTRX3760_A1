@@ -10,6 +10,7 @@ Authored by Xavier Nicholas, 2026
 #include "testing.h"
 #include "driveMotor.h"
 #include "objectSensor.h"
+#include "CController.h"
 
 #include <iostream>
 #include <string>
@@ -54,4 +55,25 @@ void TestAll( int aLoops, int aStartingVel )
 {
     TestCDriveMotor(aLoops, aStartingVel);
     TestCObjectSensor(aLoops);
+}
+
+// Test the CController class running two different subsystem kinds
+void TestController( int aCycles, int aStartingVel )
+{
+    std::cout << "Start TestController" << std::endl;
+ 
+    // Initialise two different subsystems 
+    CDriveMotor motor("Motor1", aStartingVel);
+    CObjectSensor sensor("Sensor1");
+ 
+    // Register them with a controller
+    CController controller;
+    controller.AddSubsystem(&motor);
+    controller.AddSubsystem(&sensor);
+ 
+    // Loop run the controller and report all subsystems
+    for (int i = 0; i < aCycles; i++)
+    {
+        controller.RunCycle();
+    }
 }

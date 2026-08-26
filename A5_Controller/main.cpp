@@ -11,6 +11,8 @@ int main()
     int startingVelocity = 55;
     TestAll(testLoops, startingVelocity);
     
+    int controllerCycles = 3;
+    TestController(controllerCycles, startingVelocity);
     return 0;
 }
 

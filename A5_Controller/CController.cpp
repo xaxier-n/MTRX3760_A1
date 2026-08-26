@@ -28,8 +28,6 @@ void CController::AddSubsystem( CSubsystem* apSubsystem )
 }
 
 // Runs a single cycle of all registered subsystems
-// Each subsystem is run and then reports itself. The controller does not know
-// what kind of subsystem it is running, only that it has a Run() and Report()
 void CController::RunCycle()
 {
     std::cout << "Controller cycle " << mCycle << std::endl;

@@ -46,5 +46,18 @@ Arguments
     - aStartingVel: the drive motor's starting velocity in km/h 
         (limited to -30 to 50)
 */
+void TestController( int aCycles, int aStartingVel );
+/*
+Tests the CController class. Creates a CController and registers a
+CDriveMotor and a CObjectSensor with it (two different kinds of subsystem,
+each with its own internal state), then runs the specified number of
+cycles. Each cycle the controller runs and reports every registered
+subsystem polymorphically, without knowing their concrete types.
+ 
+Arguments
+    - aCycles: how many cycles to run (at least 3 to see changing state)
+    - aStartingVel: the drive motor's starting velocity in km/h
+        (limited to -30 to 50)
+*/
 
 #endif
